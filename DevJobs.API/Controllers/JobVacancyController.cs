@@ -3,6 +3,7 @@ using DevJobs.Application.InputModels;
 using DevJobs.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using DevJobs.Infrastructure.Persistence.Repositories.Interfaces;
 
 namespace DevJobs.API.Controllers
 {
@@ -10,23 +11,21 @@ namespace DevJobs.API.Controllers
     [ApiController]
     public class JobVacancyController : Controller
     {
-        private readonly DevJobsContext _context;
-        public JobVacancyController(DevJobsContext context)
+        private readonly IjobVacancyRepository _repository;
+        public JobVacancyController(IjobVacancyRepository repository)
         {
-            _context = context;
+            _repository = repository;
         }
         [HttpGet]
         public IActionResult GetAll()
         {
-            var jobVacancies = _context.JobVacancies;
+            var jobVacancies = _repository.GetAll();
             return Ok(jobVacancies);
         }
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
-            var jobVacancy = _context.JobVacancies
-                .Include(jv => jv.Applications)
-                .SingleOrDefault(jv => jv.Id == id);
+            var jobVacancy = _repository.GetById(id);
             if(jobVacancy == null) { return NotFound(); }
 
 
@@ -42,14 +41,13 @@ namespace DevJobs.API.Controllers
                 model.IsRemote,
                 model.SalaryRange
                 );
-            _context.JobVacancies.Add(jobVacancy);
-            _context.SaveChanges();
+            _repository.Add(jobVacancy);
             return CreatedAtAction("GetById", new {id = jobVacancy.Id}, jobVacancy);
         }
         [HttpPut("{id}")]
         public IActionResult Put(int id, UpdateJobVacancyInputModel model)
         {
-            var jobVacancy = _context.JobVacancies.SingleOrDefault(jv => jv.Id == id);
+            var jobVacancy = _repository.GetById(id);
             if (jobVacancy == null) { return NotFound(); }
             jobVacancy.Update(
                 model.Title,
@@ -57,7 +55,7 @@ namespace DevJobs.API.Controllers
                 model.Company,
                 model.IsRemote,
                 model.SalaryRange);
-            _context.SaveChanges();
+            _repository.Update(jobVacancy);
             return Ok();
         }
     }

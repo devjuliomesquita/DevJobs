@@ -1,4 +1,6 @@
 using DevJobs.Infrastructure.Persistence;
+using DevJobs.Infrastructure.Persistence.Repositories.Implementations;
+using DevJobs.Infrastructure.Persistence.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 
@@ -11,7 +13,7 @@ var connectionStrings = builder.Configuration.GetConnectionString("DataBase");
 builder.Services.AddDbContext<DevJobsContext>(options => 
     options.UseSqlServer(connectionStrings));
 
-
+builder.Services.AddScoped<IjobVacancyRepository, JobVacancyRepository>();
 // Add services to the container.
 
 builder.Services.AddControllers();
