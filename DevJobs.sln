@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevJobs.API", "DevJobs.API\DevJobs.API.csproj", "{7318B6F6-8BCE-4219-8A7E-1B1052615DC9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevJobs.API", "DevJobs.API\DevJobs.API.csproj", "{7318B6F6-8BCE-4219-8A7E-1B1052615DC9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Devjobs.Core", "Devjobs.Core\Devjobs.Core.csproj", "{FB369A57-470A-4E92-AF94-2CAB76D64C0E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevJobs.Core", "Devjobs.Core\DevJobs.Core.csproj", "{FB369A57-470A-4E92-AF94-2CAB76D64C0E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevJobs.Application", "DevJobs.Application\DevJobs.Application.csproj", "{6DCB4B26-C453-4B6E-90AF-5445AF1FC920}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevJobs.Application", "DevJobs.Application\DevJobs.Application.csproj", "{6DCB4B26-C453-4B6E-90AF-5445AF1FC920}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevJobs.Infrastructure", "DevJobs.Infrastructure\DevJobs.Infrastructure.csproj", "{84F15904-A3E4-4464-AFC4-1C2081DF7EAC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevJobs.Infrastructure", "DevJobs.Infrastructure\DevJobs.Infrastructure.csproj", "{84F15904-A3E4-4464-AFC4-1C2081DF7EAC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

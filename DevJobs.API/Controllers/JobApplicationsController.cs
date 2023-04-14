@@ -1,5 +1,6 @@
-﻿using Devjobs.Core.Entities;
+﻿
 using DevJobs.Application.InputModels;
+using DevJobs.Core.Entities;
 using DevJobs.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

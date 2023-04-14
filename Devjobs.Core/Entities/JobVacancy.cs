@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Devjobs.Core.Entities
+namespace DevJobs.Core.Entities
 {
     public class JobVacancy
     {

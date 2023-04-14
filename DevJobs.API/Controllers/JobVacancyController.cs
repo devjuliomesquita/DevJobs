@@ -1,4 +1,4 @@
-﻿using Devjobs.Core.Entities;
+﻿using DevJobs.Core.Entities;
 using DevJobs.Application.InputModels;
 using DevJobs.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Mvc;
