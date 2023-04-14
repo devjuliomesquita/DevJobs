@@ -8,16 +8,16 @@ namespace DevJobs.Core.Entities
 {
     public class JobApplication
     {
-        public JobApplication(string applicatName, string applicantEmail, int idApplicant)
+        public JobApplication(string applicatName, string applicantEmail, int idJobVacancy)
         {
             ApplicatName = applicatName;
             ApplicantEmail = applicantEmail;
-            IdApplicant = idApplicant;
+            IdJobVacancy = idJobVacancy;
         }
 
         public int Id { get; private set; }
         public string ApplicatName { get; private set; }
         public string ApplicantEmail { get; private set; }
-        public int IdApplicant { get; private set; }
+        public int IdJobVacancy { get; private set; }
     }
 }

@@ -1,10 +1,15 @@
 using DevJobs.Infrastructure.Persistence;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
+//Inserindo conectionString
+var connectionStrings = builder.Configuration.GetConnectionString("DataBase");
 
 //Injeção de Dependência
-builder.Services.AddSingleton<DevJobsContext>();
+builder.Services.AddDbContext<DevJobsContext>(options => 
+    options.UseInMemoryDatabase("DataBaseInMemory"));
 
 
 // Add services to the container.

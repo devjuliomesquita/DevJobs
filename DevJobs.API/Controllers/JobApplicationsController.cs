@@ -26,7 +26,8 @@ namespace DevJobs.API.Controllers
                 model.ApplicatName,
                 model.ApplicatEmail,
                 id);
-            jobVacancy!.Applications.Add(jobApplication);
+            _context.JobApplications.Add(jobApplication);
+            _context.SaveChanges();
             return Ok();
         }
     }
