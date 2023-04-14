@@ -9,7 +9,7 @@ var connectionStrings = builder.Configuration.GetConnectionString("DataBase");
 
 //Injeção de Dependência
 builder.Services.AddDbContext<DevJobsContext>(options => 
-    options.UseInMemoryDatabase("DataBaseInMemory"));
+    options.UseSqlServer(connectionStrings));
 
 
 // Add services to the container.

@@ -31,6 +31,7 @@ namespace DevJobs.Infrastructure.Persistence
             modelBuilder.Entity<JobApplication>(e =>
             {
                 e.HasKey(ja => ja.Id);
+                e.ToTable("tb_JobApplication");
             });
         }
     }
