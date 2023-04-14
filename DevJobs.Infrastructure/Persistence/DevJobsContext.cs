@@ -1,5 +1,5 @@
 ﻿
-using Devjobs.Core.Entities;
+using DevJobs.Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
