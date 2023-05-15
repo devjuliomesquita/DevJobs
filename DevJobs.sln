@@ -11,6 +11,18 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevJobs.Application", "DevJ
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevJobs.Infrastructure", "DevJobs.Infrastructure\DevJobs.Infrastructure.csproj", "{84F15904-A3E4-4464-AFC4-1C2081DF7EAC}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Presentation", "0 - Presentation", "{14DB3CFA-3859-4171-8FC4-F8912D110920}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Domain", "1 - Domain", "{85775D63-77C8-4109-A97F-58687353C3C9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Infrastructure", "2 - Infrastructure", "{B4027138-9FF0-42EC-9A0E-C48E00F47485}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Application", "3 - Application", "{35A24CA6-3BC0-40D8-84A0-341EBA5AB181}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.1 - Data", "2.1 - Data", "{DE25EE6B-A5EE-4E67-80A7-7847A94C8C25}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.2 - CrossCuting", "2.2 - CrossCuting", "{239E4AD1-B825-467B-9364-B1CB40B3E362}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,6 +48,14 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7318B6F6-8BCE-4219-8A7E-1B1052615DC9} = {14DB3CFA-3859-4171-8FC4-F8912D110920}
+		{FB369A57-470A-4E92-AF94-2CAB76D64C0E} = {85775D63-77C8-4109-A97F-58687353C3C9}
+		{6DCB4B26-C453-4B6E-90AF-5445AF1FC920} = {35A24CA6-3BC0-40D8-84A0-341EBA5AB181}
+		{84F15904-A3E4-4464-AFC4-1C2081DF7EAC} = {DE25EE6B-A5EE-4E67-80A7-7847A94C8C25}
+		{DE25EE6B-A5EE-4E67-80A7-7847A94C8C25} = {B4027138-9FF0-42EC-9A0E-C48E00F47485}
+		{239E4AD1-B825-467B-9364-B1CB40B3E362} = {B4027138-9FF0-42EC-9A0E-C48E00F47485}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CE33CB80-2A3F-49F6-B54A-4D53A2E58DDB}
