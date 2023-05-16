@@ -35,7 +35,7 @@ namespace DevJobs.API.Controllers
             return
                 Excute(() => _service.GetById<JobVacancyDetailsViewModel>(id));
         }
-        [HttpGet("{id}")]
+        [HttpGet("{id}/Details")]
         public IActionResult GetDetails(int id)
         {
             if (id == 0) { return NotFound(); }
