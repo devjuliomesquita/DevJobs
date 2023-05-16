@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace DevJobs.Core.Interfaces.Repository
 {
-    public interface IRepositoryBase<TEntity> where TEntity : BaseEntity
+    public interface IRepositoryBase<TEntity> : IDisposable where TEntity : BaseEntity
     {
         void Add(TEntity entity);
         void Update(TEntity entity);
-        void Delete(TEntity entity);
+        void Delete(int id);
         IList<TEntity> GetAll();
         TEntity GetById(int id);
     }
