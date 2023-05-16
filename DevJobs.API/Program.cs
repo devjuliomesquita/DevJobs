@@ -19,10 +19,12 @@ builder.Services.AddDbContext<DevJobsContext>(options =>
 
 //Injeção de Dependência - Repositórios
 builder.Services.AddScoped<IRepositoryBase<JobVacancy>, RepositoryBase<JobVacancy>>();
+builder.Services.AddScoped<IRepositoryBase<JobApplication>, RepositoryBase<JobApplication>>();
 builder.Services.AddScoped<IJobVacancyRepository, JobVacancyRepository>();
 
 //Injeção de Dependência - Services
 builder.Services.AddScoped<IServiceBase<JobVacancy>, ServiceBase<JobVacancy>>();
+builder.Services.AddScoped<IJobApplicationService, JobApplicationService>();
 
 //AutoMapper - todas as confg
 builder.Services.AddAutoMapper(typeof(DevJobs_Mapper));
