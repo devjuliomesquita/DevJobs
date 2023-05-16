@@ -18,6 +18,7 @@ namespace DevJobs.API.AutoMapper
             CreateMap<JobVacancy, JobVacancyViewModel>();
             CreateMap<JobVacancy, JobVacancyDetailsViewModel>();
             CreateMap<JobApplication, JobApplicationViewModel>();
+            CreateMap<JobVacancy, JobVacancyApplicationViewModel>();
         }
     }
 }

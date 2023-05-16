@@ -16,9 +16,11 @@ namespace DevJobs.API.Controllers
     {
         //CONSTRUTOR
         private readonly IServiceBase<JobVacancy> _service;
-        public JobVacancyController(IServiceBase<JobVacancy> service)
+        private readonly IJobVacancyService _jobVacancyService;
+        public JobVacancyController(IServiceBase<JobVacancy> service, IJobVacancyService jobVacancyService)
         {
             _service = service;
+            _jobVacancyService = jobVacancyService;
         }
         [HttpGet]
         public IActionResult GetAll()
@@ -32,6 +34,13 @@ namespace DevJobs.API.Controllers
             if(id == 0) { return NotFound(); }
             return
                 Excute(() => _service.GetById<JobVacancyDetailsViewModel>(id));
+        }
+        [HttpGet("{id}")]
+        public IActionResult GetDetails(int id)
+        {
+            if (id == 0) { return NotFound(); }
+            return
+                Excute(() => _jobVacancyService.GetDetailsVacancy<JobVacancyApplicationViewModel>(id));
         }
         [HttpPost]
         public IActionResult Post([FromBody] JobVacancyInputModel inputModel)
