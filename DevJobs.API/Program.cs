@@ -1,6 +1,10 @@
+using DevJobs.API.AutoMapper;
+using DevJobs.Application.Services;
+using DevJobs.Core.Entities;
+using DevJobs.Core.Interfaces.Repository;
+using DevJobs.Core.Interfaces.Service;
 using DevJobs.Infrastructure.Persistence.Context;
-using DevJobs.Infrastructure.Persistence.Repositories.Implementations;
-using DevJobs.Infrastructure.Persistence.Repositories.Interfaces;
+using DevJobs.Infrastructure.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 
@@ -13,8 +17,16 @@ var connectionStrings = builder.Configuration.GetConnectionString("DataBase");
 builder.Services.AddDbContext<DevJobsContext>(options => 
     options.UseSqlServer(connectionStrings));
 
-//Injeção de Dependência
-builder.Services.AddScoped<IjobVacancyRepository, JobVacancyRepository>();
+//Injeção de Dependência - Repositórios
+builder.Services.AddScoped<IRepositoryBase<JobVacancy>, RepositoryBase<JobVacancy>>();
+builder.Services.AddScoped<IJobVacancyRepository, JobVacancyRepository>();
+
+//Injeção de Dependência - Services
+builder.Services.AddScoped<IServiceBase<JobVacancy>, ServiceBase<JobVacancy>>();
+
+//AutoMapper - todas as confg
+builder.Services.AddAutoMapper(typeof(DevJobs_Mapper));
+
 // Add services to the container.
 
 builder.Services.AddControllers();

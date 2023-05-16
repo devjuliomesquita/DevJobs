@@ -1,9 +1,9 @@
-﻿using DevJobs.Core.Entities;
-using DevJobs.Application.InputModels;
+﻿using AutoMapper;
+using DevJobs.Core.Entities;
+using DevJobs.Core.Interfaces.Service;
 using DevJobs.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using DevJobs.Infrastructure.Persistence.Repositories.Interfaces;
 
 namespace DevJobs.API.Controllers
 {
@@ -11,10 +11,11 @@ namespace DevJobs.API.Controllers
     [ApiController]
     public class JobVacancyController : Controller
     {
-        private readonly IjobVacancyRepository _repository;
-        public JobVacancyController(IjobVacancyRepository repository)
+        //CONSTRUTOR
+        private readonly IServiceBase<JobVacancy> _service;
+        public JobVacancyController(IServiceBase<JobVacancy> service)
         {
-            _repository = repository;
+            _service = service;
         }
         [HttpGet]
         public IActionResult GetAll()
