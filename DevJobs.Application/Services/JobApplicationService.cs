@@ -15,12 +15,15 @@ namespace DevJobs.Application.Services
     {
         private readonly IMapper _mapper;
         private readonly IRepositoryBase<JobApplication> _repositoryBase;
+        private readonly IJobApplicationRepository _jobApplicationRepository;
         public JobApplicationService(
             IRepositoryBase<JobApplication> repositoryBase, 
-            IMapper mapper) : base(repositoryBase, mapper)
+            IMapper mapper,
+            IJobApplicationRepository jobApplicationRepository) : base(repositoryBase, mapper)
         {
             _mapper = mapper;
             _repositoryBase = repositoryBase;
+            _jobApplicationRepository = jobApplicationRepository;
         }
 
         public TOutputModel AddJobApplication<TInputModel, TOutputModel, TValidator>(TInputModel inputModel)
@@ -30,7 +33,7 @@ namespace DevJobs.Application.Services
         {
             var application = _mapper.Map<JobApplication>(inputModel);
             Validate(application, Activator.CreateInstance<TValidator>());
-            _repositoryBase.Add(application);
+            _jobApplicationRepository.AddApplication(application);
             TOutputModel outputModel = _mapper.Map<TOutputModel>(application);
             return outputModel;
             
