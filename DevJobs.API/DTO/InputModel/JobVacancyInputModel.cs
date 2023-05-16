@@ -10,6 +10,6 @@ namespace DevJobs.API.DTO.InputModel
         public bool IsRemote { get; set; }
         public string? SalaryRange { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.Now;
-        //public List<JobApplication>? Applications { get; set; }
+        //public List<JobApplicationInputModel>? Applications { get; set; } = new List<JobApplicationInputModel>();
     }
 }

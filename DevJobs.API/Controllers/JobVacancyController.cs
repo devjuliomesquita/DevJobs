@@ -1,4 +1,7 @@
 ﻿using AutoMapper;
+using DevJobs.API.DTO.InputModel;
+using DevJobs.API.DTO.ViewModel;
+using DevJobs.Application.Validators;
 using DevJobs.Core.Entities;
 using DevJobs.Core.Interfaces.Service;
 using DevJobs.Infrastructure.Persistence;
@@ -20,45 +23,54 @@ namespace DevJobs.API.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
-            var jobVacancies = _repository.GetAll();
-            return Ok(jobVacancies);
+            return
+                Excute(() => _service.GetAll<JobVacancyViewModel>());
         }
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
-            var jobVacancy = _repository.GetById(id);
-            if(jobVacancy == null) { return NotFound(); }
-
-
-            return Ok(jobVacancy);
+            if(id == 0) { return NotFound(); }
+            return
+                Excute(() => _service.GetById<JobVacancyDetailsViewModel>(id));
         }
         [HttpPost]
-        public IActionResult Post(AddJobVacancyInputModel model)
+        public IActionResult Post([FromBody] JobVacancyInputModel inputModel)
         {
-            //var jobVacancy = new JobVacancy(
-            //    model.Title,
-            //    model.Description,
-            //    model.Company,
-            //    model.IsRemote,
-            //    model.SalaryRange
-            //    );
-            //_repository.Add(jobVacancy);
-            //return CreatedAtAction("GetById", new {id = jobVacancy.Id}, jobVacancy);
-            return Ok();
+            if (inputModel == null) {  return NotFound(); }
+            return
+                Excute(() => _service.Add<JobVacancyInputModel, JobVacancyViewModel, JobVacancyValidator>(inputModel));
         }
-        [HttpPut("{id}")]
-        public IActionResult Put(int id, UpdateJobVacancyInputModel model)
+        [HttpPut]
+        public IActionResult Put(JobVacancyUpdateInputModel inputModel)
         {
-            var jobVacancy = _repository.GetById(id);
-            if (jobVacancy == null) { return NotFound(); }
-            jobVacancy.Update(
-                model.Title,
-                model.Description,
-                model.Company,
-                model.IsRemote,
-                model.SalaryRange);
-            _repository.Update(jobVacancy);
-            return Ok();
+            if (inputModel == null) { return NotFound(); }
+            return
+                Excute(() => _service.Update<JobVacancyUpdateInputModel, JobVacancyViewModel, JobVacancyValidator>(inputModel));
+        }
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            if (id == 0) { return NotFound(); }
+            Excute(() =>
+            {
+                _service.Delete(id);
+                return true;
+            });
+            return new ContentResult();
+        }
+
+        //Criando método de execução
+        private IActionResult Excute(Func<object> func)
+        {
+            try
+            {
+                var result = func();
+                return Ok(result);
+            }
+            catch (Exception ex) 
+            {
+                return BadRequest(ex);
+            }
         }
     }
 }
