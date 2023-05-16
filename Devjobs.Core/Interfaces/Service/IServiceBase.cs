@@ -10,11 +10,11 @@ namespace DevJobs.Core.Interfaces.Service
 {
     public interface IServiceBase<TEntity> where TEntity : BaseEntity
     {
-        TEntity Add<TInputModel, TOutputModel, TValidator>(TInputModel inputModel) 
+        TOutputModel Add<TInputModel, TOutputModel, TValidator>(TInputModel inputModel) 
             where TValidator : AbstractValidator<TEntity>
             where TInputModel : class
             where TOutputModel : class;
-        TEntity Update<TInputModel, TOutputModel, TValidator>(TInputModel inputModel) 
+        TOutputModel Update<TInputModel, TOutputModel, TValidator>(TInputModel inputModel) 
             where TValidator : AbstractValidator<TEntity>
             where TInputModel : class
             where TOutputModel : class;
