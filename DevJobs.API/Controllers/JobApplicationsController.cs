@@ -29,7 +29,12 @@ namespace DevJobs.API.Controllers
                 .AddJobApplication<JobApplicationInputModel, JobApplicationViewModel, JobApplicationValidator>
                 (inputModel));
         }
-
+        [HttpGet]
+        public IActionResult GetAll()
+        {
+            return
+                Excute(() => _jobApplicationService.GetAll<JobApplicationViewModel>());
+        }
         //Criando método de execução
         private IActionResult Excute(Func<object> func)
         {

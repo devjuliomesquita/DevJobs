@@ -1,4 +1,6 @@
 ﻿
+using DevJobs.Core.Entities;
+
 namespace DevJobs.API.DTO.ViewModel
 {
     public class JobVacancyDetailsViewModel
@@ -10,6 +12,6 @@ namespace DevJobs.API.DTO.ViewModel
         public bool IsRemote { get; set; }
         public string? SalaryRange { get; set; }
         public DateTime CreatedAt { get; set; }
-        public List<JobApplicationViewModel>? Applications { get; set; }
+        public List<JobApplication>? Applications { get; set; }
     }
 }
