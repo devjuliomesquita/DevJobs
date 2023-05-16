@@ -1,4 +1,7 @@
 ﻿using AutoMapper;
+using DevJobs.API.DTO.InputModel;
+using DevJobs.API.DTO.ViewModel;
+using DevJobs.Core.Entities;
 
 namespace DevJobs.API.AutoMapper
 {
@@ -6,7 +9,15 @@ namespace DevJobs.API.AutoMapper
     {
         public DevJobs_Mapper()
         {
-            
+            //Mapeamento da viewmodel para a entidade
+            CreateMap<JobVacancyInputModel, JobVacancy>();
+            CreateMap<JobVacancyUpdateInputModel, JobVacancy>();
+            CreateMap<JobApplication, JobApplicationInputModel>();
+
+            //Mepeamento da entidade para a viewmodel
+            CreateMap<JobVacancy, JobVacancyViewModel>();
+            CreateMap<JobVacancy, JobVacancyDetailsViewModel>();
+            CreateMap<JobApplication, JobApplicationViewModel>();
         }
     }
 }
