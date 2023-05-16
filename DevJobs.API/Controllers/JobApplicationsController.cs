@@ -19,8 +19,8 @@ namespace DevJobs.API.Controllers
             _serviceBase = serviceBase;
         }
 
-        [HttpPost("{id}")]
-        public IActionResult Post([FromBody] int id, JobApplicationInputModel inputModel)
+        [HttpPost]
+        public IActionResult Post( int id, [FromBody] JobApplicationInputModel inputModel)
         {
             var jobVacancy = _serviceBase.GetById<JobVacancy>(id);
             if (jobVacancy == null) { return NotFound(); }

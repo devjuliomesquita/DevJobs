@@ -13,15 +13,12 @@ namespace DevJobs.Application.Services
 {
     public class JobApplicationService : ServiceBase<JobApplication>, IJobApplicationService
     {
-        private readonly IJobApplicationService _jobVacancy;
         private readonly IMapper _mapper;
         private readonly IRepositoryBase<JobApplication> _repositoryBase;
         public JobApplicationService(
             IRepositoryBase<JobApplication> repositoryBase, 
-            IMapper mapper,
-            IJobApplicationService jobVacancy) : base(repositoryBase, mapper)
+            IMapper mapper) : base(repositoryBase, mapper)
         {
-            _jobVacancy = jobVacancy;
             _mapper = mapper;
             _repositoryBase = repositoryBase;
         }

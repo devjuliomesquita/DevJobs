@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 
 namespace DevJobs.Infrastructure.Persistence.Repositories
 {
-    public class JobVacancyRepository : RepositoryBase<JobVacancy>, IJobVacancyRepository 
+    public class JobApplicationRepository : RepositoryBase<JobApplication>, IJobApplicationRepository 
     {
         private readonly DevJobsContext _context;
-        public JobVacancyRepository(DevJobsContext context) : base(context)
+        public JobApplicationRepository(DevJobsContext context) : base(context)
         {
             _context = context;
         }

@@ -20,7 +20,7 @@ builder.Services.AddDbContext<DevJobsContext>(options =>
 //Injeção de Dependência - Repositórios
 builder.Services.AddScoped<IRepositoryBase<JobVacancy>, RepositoryBase<JobVacancy>>();
 builder.Services.AddScoped<IRepositoryBase<JobApplication>, RepositoryBase<JobApplication>>();
-builder.Services.AddScoped<IJobVacancyRepository, JobVacancyRepository>();
+builder.Services.AddScoped<IJobApplicationRepository, JobApplicationRepository>();
 
 //Injeção de Dependência - Services
 builder.Services.AddScoped<IServiceBase<JobVacancy>, ServiceBase<JobVacancy>>();

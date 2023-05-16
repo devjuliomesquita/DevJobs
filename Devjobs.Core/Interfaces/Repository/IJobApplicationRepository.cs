@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DevJobs.Core.Interfaces.Repository
 {
-    public interface IJobVacancyRepository : IRepositoryBase<JobVacancy> 
+    public interface IJobApplicationRepository : IRepositoryBase<JobApplication> 
     {
         void AddApplication(JobApplication jobApplication);
     }

@@ -12,7 +12,7 @@ namespace DevJobs.API.AutoMapper
             //Mapeamento da viewmodel para a entidade
             CreateMap<JobVacancyInputModel, JobVacancy>();
             CreateMap<JobVacancyUpdateInputModel, JobVacancy>();
-            CreateMap<JobApplication, JobApplicationInputModel>();
+            CreateMap<JobApplicationInputModel, JobApplication>();
 
             //Mepeamento da entidade para a viewmodel
             CreateMap<JobVacancy, JobVacancyViewModel>();
