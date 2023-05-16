@@ -20,6 +20,11 @@ namespace DevJobs.Infrastructure.Persistence.Mapping
                 .HasConversion(ja => ja.ToString(), ja => ja)
                 .HasColumnName("Email")
                 .HasColumnType("varchar(100)");
+            builder.Property(ja => ja.ApplicatName)
+                .IsRequired()
+                .HasConversion(ja => ja.ToString(), ja => ja)
+                .HasColumnName("Name")
+                .HasColumnType("varchar(150)");
         }
     }
 }

@@ -23,11 +23,11 @@ namespace DevJobs.API.Controllers
             var jobVacancy = _irepository.GetById(id);
             if(jobVacancy == null) { NotFound(); }
 
-            var jobApplication = new JobApplication(
-                model.ApplicatName,
-                model.ApplicatEmail,
-                id);
-            _irepository.AddApplication(jobApplication);
+            //var jobApplication = new JobApplication(
+            //    model.ApplicatName,
+            //    model.ApplicatEmail,
+            //    id);
+            //_irepository.AddApplication(jobApplication);
             return Ok();
         }
     }

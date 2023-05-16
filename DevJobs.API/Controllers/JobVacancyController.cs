@@ -34,15 +34,16 @@ namespace DevJobs.API.Controllers
         [HttpPost]
         public IActionResult Post(AddJobVacancyInputModel model)
         {
-            var jobVacancy = new JobVacancy(
-                model.Title,
-                model.Description,
-                model.Company,
-                model.IsRemote,
-                model.SalaryRange
-                );
-            _repository.Add(jobVacancy);
-            return CreatedAtAction("GetById", new {id = jobVacancy.Id}, jobVacancy);
+            //var jobVacancy = new JobVacancy(
+            //    model.Title,
+            //    model.Description,
+            //    model.Company,
+            //    model.IsRemote,
+            //    model.SalaryRange
+            //    );
+            //_repository.Add(jobVacancy);
+            //return CreatedAtAction("GetById", new {id = jobVacancy.Id}, jobVacancy);
+            return Ok();
         }
         [HttpPut("{id}")]
         public IActionResult Put(int id, UpdateJobVacancyInputModel model)

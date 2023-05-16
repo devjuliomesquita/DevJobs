@@ -21,9 +21,4 @@
     </PackageReference>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Interfaces\Service\" />
-    <Folder Include="Interfaces\Repository\" />
-  </ItemGroup>
-
 </Project>

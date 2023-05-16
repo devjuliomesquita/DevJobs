@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace DevJobs.Infrastructure.Persistence.Migrations
+namespace DevJobs.Infrastructure.Migrations
 {
     [DbContext(typeof(DevJobsContext))]
     partial class DevJobsContextModelSnapshot : ModelSnapshot
@@ -32,11 +32,13 @@ namespace DevJobs.Infrastructure.Persistence.Migrations
 
                     b.Property<string>("ApplicantEmail")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("Email");
 
                     b.Property<string>("ApplicatName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(150)")
+                        .HasColumnName("Name");
 
                     b.Property<int>("IdJobVacancy")
                         .HasColumnType("int");
@@ -45,7 +47,7 @@ namespace DevJobs.Infrastructure.Persistence.Migrations
 
                     b.HasIndex("IdJobVacancy");
 
-                    b.ToTable("tb_JobApplication", (string)null);
+                    b.ToTable("tb_Application", (string)null);
                 });
 
             modelBuilder.Entity("DevJobs.Core.Entities.JobVacancy", b =>
@@ -58,29 +60,33 @@ namespace DevJobs.Infrastructure.Persistence.Migrations
 
                     b.Property<string>("Company")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("Company");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(300)")
+                        .HasColumnName("Description");
 
                     b.Property<bool>("IsRemote")
                         .HasColumnType("bit");
 
                     b.Property<string>("SalaryRange")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("SalaryRange");
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("Title");
 
                     b.HasKey("Id");
 
-                    b.ToTable("tb_JobVacancies", (string)null);
+                    b.ToTable("tb_Vacancy", (string)null);
                 });
 
             modelBuilder.Entity("DevJobs.Core.Entities.JobApplication", b =>

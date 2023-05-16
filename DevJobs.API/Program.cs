@@ -9,10 +9,11 @@ var builder = WebApplication.CreateBuilder(args);
 //Inserindo conectionString
 var connectionStrings = builder.Configuration.GetConnectionString("DataBase");
 
-//Injeção de Dependência
+
 builder.Services.AddDbContext<DevJobsContext>(options => 
     options.UseSqlServer(connectionStrings));
 
+//Injeção de Dependência
 builder.Services.AddScoped<IjobVacancyRepository, JobVacancyRepository>();
 // Add services to the container.
 
