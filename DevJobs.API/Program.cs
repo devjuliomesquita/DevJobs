@@ -1,4 +1,4 @@
-using DevJobs.Infrastructure.Persistence;
+using DevJobs.Infrastructure.Persistence.Context;
 using DevJobs.Infrastructure.Persistence.Repositories.Implementations;
 using DevJobs.Infrastructure.Persistence.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
